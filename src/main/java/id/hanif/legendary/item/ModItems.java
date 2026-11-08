@@ -59,6 +59,12 @@ public final class ModItems {
             .attributeModifiers(net.minecraft.item.AxeItem.createAttributeModifiers(ToolMaterials.DIAMOND, 9.0F, -3.0F))
             .maxCount(1).fireproof())
     );
+    public static final Item SOLARIA = Registry.register(
+        Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "solaria"),
+        new SwordItem(ToolMaterials.DIAMOND, new Item.Settings()
+            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 11, -2.5f))
+            .maxCount(1).fireproof())
+    );
     private ModItems() {}
 
     public static void register() {
