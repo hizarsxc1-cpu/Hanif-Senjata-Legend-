@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "hlegendary",
+  "version": "${version}",
+  "name": "H Legendary Weapons",
+  "description": "Legendary weapons with seven configurable skills. First weapon: Inferno Blade.",
+  "authors": ["Hanif"],
+  "contact": {
+    "sources": "https://github.com/hizarsxc1-cpu/Hanif-Senjata-Legend-"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["id.hanif.legendary.HLegendaryWeapons"],
+    "client": ["id.hanif.legendary.client.HLegendaryWeaponsClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": "1.21",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
