@@ -1,7 +1,9 @@
 package id.hanif.legendary.item;
 
 import id.hanif.legendary.HLegendaryWeapons;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
@@ -78,6 +80,19 @@ public final class ModItems {
     private ModItems() {}
 
     public static void register() {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.add(INFERNO_BLADE);
+            entries.add(FROSTBITE);
+            entries.add(THUNDER_HAMMER);
+            entries.add(VOID_SCYTHE);
+            entries.add(DRAGON_SLAYER);
+            entries.add(WIND_KATANA);
+            entries.add(TITAN_AXE);
+            entries.add(CELESTIAL_AXE);
+            entries.add(SOLARIA);
+            entries.add(CHRONOS);
+            entries.add(ZAHR_HANI);
+        });
         HLegendaryWeapons.LOGGER.info("Registered eleven H Legendary Weapons, including Zahr & Hani");
     }
 }
