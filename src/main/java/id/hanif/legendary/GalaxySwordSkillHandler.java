@@ -1,5 +1,6 @@
 package id.hanif.legendary;
 
+import id.hanif.legendary.item.ModItems;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -150,7 +151,7 @@ public final class GalaxySwordSkillHandler {
     public static void tickAura(MinecraftServer server) {
         for(ServerPlayerEntity p:server.getPlayerManager().getPlayerList()){
             UUID id=p.getUuid();
-            if(p.getMainHandStack().isOf(id.hanif.legendary.item.ModItems.GALAXY_SWORD) && p.getWorld() instanceof ServerWorld w){
+            if(p.getMainHandStack().isOf(ModItems.GALAXY_SWORD) && p.getWorld() instanceof ServerWorld w){
                 int tick=AURA_TICKS.getOrDefault(id,0)+1;
                 if(tick>=10){
                     AURA_TICKS.put(id,0);
