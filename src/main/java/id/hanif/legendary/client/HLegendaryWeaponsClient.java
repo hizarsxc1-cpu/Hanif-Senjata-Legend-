@@ -37,7 +37,8 @@ public class HLegendaryWeaponsClient implements ClientModInitializer {
                 || client.player.getMainHandStack().isOf(ModItems.CELESTIAL_AXE)
                 || client.player.getMainHandStack().isOf(ModItems.SOLARIA)
                 || client.player.getMainHandStack().isOf(ModItems.CHRONOS)
-                || client.player.getMainHandStack().isOf(ModItems.ZAHR_HANI);
+                || client.player.getMainHandStack().isOf(ModItems.ZAHR_HANI)
+                || client.player.getMainHandStack().isOf(ModItems.DOOMBRINGER_AXE);
             if (!legendaryWeapon) return;
             for (int i = 0; i < KEYS.length; i++) {
                 while (KEYS[i].wasPressed()) ClientPlayNetworking.send(new SkillPayload(i));
