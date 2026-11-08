@@ -65,6 +65,12 @@ public final class ModItems {
             .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 11, -2.5f))
             .maxCount(1).fireproof())
     );
+    public static final Item CHRONOS = Registry.register(
+        Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "chronos"),
+        new SwordItem(ToolMaterials.NETHERITE, new Item.Settings()
+            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 12, -2.7f))
+            .maxCount(1).fireproof())
+    );
     private ModItems() {}
 
     public static void register() {

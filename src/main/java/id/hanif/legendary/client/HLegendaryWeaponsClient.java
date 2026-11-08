@@ -35,7 +35,8 @@ public class HLegendaryWeaponsClient implements ClientModInitializer {
                 || client.player.getMainHandStack().isOf(ModItems.WIND_KATANA)
                 || client.player.getMainHandStack().isOf(ModItems.TITAN_AXE)
                 || client.player.getMainHandStack().isOf(ModItems.CELESTIAL_AXE)
-                || client.player.getMainHandStack().isOf(ModItems.SOLARIA);
+                || client.player.getMainHandStack().isOf(ModItems.SOLARIA)
+                || client.player.getMainHandStack().isOf(ModItems.CHRONOS);
             if (!legendaryWeapon) return;
             for (int i = 0; i < KEYS.length; i++) {
                 while (KEYS[i].wasPressed()) ClientPlayNetworking.send(new SkillPayload(i));
