@@ -1,11 +1,12 @@
 {
   "item.hlegendary.inferno_blade": "Pedang Inferno",
+  "item.hlegendary.frostbite": "Frostbite",
   "key.categories.hlegendary.skills": "H Legendary Weapons",
-  "key.hlegendary.skill_1": "Skill 1 - Tebasan Api",
-  "key.hlegendary.skill_2": "Skill 2 - Tornado Api",
-  "key.hlegendary.skill_3": "Skill 3 - Hantaman Meteor",
-  "key.hlegendary.skill_4": "Skill 4 - Ledakan Inferno",
-  "key.hlegendary.skill_5": "Skill 5 - Dash Membara",
-  "key.hlegendary.skill_6": "Skill 6 - Kebangkitan Phoenix",
-  "key.hlegendary.skill_7": "Ultimate - Badai Neraka"
+  "key.hlegendary.skill_1": "Skill 1",
+  "key.hlegendary.skill_2": "Skill 2",
+  "key.hlegendary.skill_3": "Skill 3",
+  "key.hlegendary.skill_4": "Skill 4",
+  "key.hlegendary.skill_5": "Skill 5",
+  "key.hlegendary.skill_6": "Skill 6",
+  "key.hlegendary.skill_7": "Ultimate"
 }

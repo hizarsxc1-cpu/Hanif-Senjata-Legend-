@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "IDI",
+    " B "
+  ],
+  "key": {
+    "I": { "item": "minecraft:packed_ice" },
+    "D": { "item": "minecraft:diamond_sword" },
+    "B": { "item": "minecraft:blue_ice" }
+  },
+  "result": {
+    "id": "hlegendary:frostbite",
+    "count": 1
+  }
+}

@@ -30,11 +30,11 @@ public class HLegendaryWeaponsClient implements ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.player == null || client.world == null) return;
-            if (!client.player.getMainHandStack().isOf(ModItems.INFERNO_BLADE)) return;
+            boolean legendaryWeapon = client.player.getMainHandStack().isOf(ModItems.INFERNO_BLADE)
+                || client.player.getMainHandStack().isOf(ModItems.FROSTBITE);
+            if (!legendaryWeapon) return;
             for (int i = 0; i < KEYS.length; i++) {
-                while (KEYS[i].wasPressed()) {
-                    ClientPlayNetworking.send(new SkillPayload(i));
-                }
+                while (KEYS[i].wasPressed()) ClientPlayNetworking.send(new SkillPayload(i));
             }
         });
     }

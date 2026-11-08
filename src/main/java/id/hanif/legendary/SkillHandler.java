@@ -26,7 +26,11 @@ public final class SkillHandler {
     private SkillHandler() {}
 
     public static void activate(ServerPlayerEntity player, int skill) {
-        if (skill < 0 || skill >= NAMES.length) return;
+        if (skill < 0 || skill >= 7) return;
+        if (player.getMainHandStack().isOf(ModItems.FROSTBITE)) {
+            FrostbiteSkillHandler.activate(player, skill);
+            return;
+        }
         if (!player.getMainHandStack().isOf(ModItems.INFERNO_BLADE)) return;
         if (!(player.getWorld() instanceof ServerWorld world)) return;
 
@@ -40,7 +44,6 @@ public final class SkillHandler {
 
         timers[skill] = now + COOLDOWN_SECONDS[skill] * 1000L;
         player.sendMessage(Text.literal("§6✦ " + NAMES[skill] + " §7activated"), true);
-
         switch (skill) {
             case 0 -> flameSlash(player, world);
             case 1 -> fireTornado(player, world);
