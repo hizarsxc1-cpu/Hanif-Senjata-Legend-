@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "BDB",
+    " I "
+  ],
+  "key": {
+    "B": { "item": "minecraft:blaze_rod" },
+    "D": { "item": "minecraft:diamond_sword" },
+    "I": { "item": "minecraft:magma_cream" }
+  },
+  "result": {
+    "id": "hlegendary:inferno_blade",
+    "count": 1
+  }
+}
