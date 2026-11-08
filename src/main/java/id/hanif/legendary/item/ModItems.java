@@ -77,6 +77,12 @@ public final class ModItems {
             .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 14, -2.8f))
             .maxCount(1).fireproof())
     );
+    public static final Item DOOMBRINGER_AXE = Registry.register(
+        Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "doombringer_axe"),
+        new net.minecraft.item.AxeItem(ToolMaterials.NETHERITE, new Item.Settings()
+            .attributeModifiers(net.minecraft.item.AxeItem.createAttributeModifiers(ToolMaterials.NETHERITE, 13.0F, -3.2F))
+            .maxCount(1).fireproof())
+    );
     private ModItems() {}
 
     public static void register() {
@@ -92,7 +98,8 @@ public final class ModItems {
             entries.add(SOLARIA);
             entries.add(CHRONOS);
             entries.add(ZAHR_HANI);
+            entries.add(DOOMBRINGER_AXE);
         });
-        HLegendaryWeapons.LOGGER.info("Registered eleven H Legendary Weapons, including Zahr & Hani");
+        HLegendaryWeapons.LOGGER.info("Registered twelve H Legendary Weapons, including Doombringer Axe");
     }
 }
