@@ -11,7 +11,10 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public final class ThunderHammerSkillHandler {
     private static final String[] NAMES = {
@@ -19,15 +22,14 @@ public final class ThunderHammerSkillHandler {
         "Sky Breaker", "Thunder Dash", "Divine Judgment"
     };
     private static final int[] COOLDOWNS = {4, 12, 10, 8, 15, 6, 55};
+    private static final Map<UUID, long[]> TIMERS = new HashMap<>();
 
     private ThunderHammerSkillHandler() {}
 
     public static void activate(ServerPlayerEntity player, int skill) {
         if (skill < 0 || skill >= 7 || !(player.getWorld() instanceof ServerWorld world)) return;
         long now = System.currentTimeMillis();
-        long[] timers = player.getPersistentState().getOrCreate(
-            id -> new ThunderCooldownState(), "hlegendary_thunder_cooldowns"
-        ).timers;
+        long[] timers = TIMERS.computeIfAbsent(player.getUuid(), ignored -> new long[7]);
         if (now < timers[skill]) {
             long left = (timers[skill] - now + 999) / 1000;
             player.sendMessage(Text.literal(NAMES[skill] + " cooldown: " + left + "s"), true);
@@ -138,7 +140,4 @@ public final class ThunderHammerSkillHandler {
             count, spread, 0.9, spread, 0.08);
     }
 
-    private static final class ThunderCooldownState {
-        private final long[] timers = new long[7];
-    }
 }
