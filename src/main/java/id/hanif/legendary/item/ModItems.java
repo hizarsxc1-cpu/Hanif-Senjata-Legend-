@@ -39,14 +39,12 @@ public final class ModItems {
             .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 12, -2.6f))
             .maxCount(1).fireproof())
     );
-
     public static final Item WIND_KATANA = Registry.register(
         Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "wind_katana"),
         new SwordItem(ToolMaterials.DIAMOND, new Item.Settings()
             .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 10, -2.4f))
             .maxCount(1).fireproof())
     );
-
     public static final Item TITAN_AXE = Registry.register(
         Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "titan_axe"),
         new net.minecraft.item.AxeItem(ToolMaterials.DIAMOND, new Item.Settings()
@@ -71,9 +69,15 @@ public final class ModItems {
             .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 12, -2.7f))
             .maxCount(1).fireproof())
     );
+    public static final Item ZAHR_HANI = Registry.register(
+        Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "zahr_hani"),
+        new SwordItem(ToolMaterials.NETHERITE, new Item.Settings()
+            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 14, -2.8f))
+            .maxCount(1).fireproof())
+    );
     private ModItems() {}
 
     public static void register() {
-        HLegendaryWeapons.LOGGER.info("Registered eight H Legendary Weapons, including Celestial Axe");
+        HLegendaryWeapons.LOGGER.info("Registered eleven H Legendary Weapons, including Zahr & Hani");
     }
 }

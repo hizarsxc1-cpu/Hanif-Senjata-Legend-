@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["GOD", "OEO", " S "],
+  "key": {
+    "G": {"item": "minecraft:gold_ingot"},
+    "O": {"item": "minecraft:obsidian"},
+    "D": {"item": "minecraft:diamond"},
+    "E": {"item": "minecraft:ender_pearl"},
+    "S": {"item": "minecraft:stick"}
+  },
+  "result": {"id": "hlegendary:zahr_hani", "count": 1}
+}
