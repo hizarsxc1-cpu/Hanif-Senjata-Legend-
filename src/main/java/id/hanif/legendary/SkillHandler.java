@@ -31,6 +31,10 @@ public final class SkillHandler {
             FrostbiteSkillHandler.activate(player, skill);
             return;
         }
+        if (player.getMainHandStack().isOf(ModItems.THUNDER_HAMMER)) {
+            ThunderHammerSkillHandler.activate(player, skill);
+            return;
+        }
         if (!player.getMainHandStack().isOf(ModItems.INFERNO_BLADE)) return;
         if (!(player.getWorld() instanceof ServerWorld world)) return;
 

@@ -3,11 +3,9 @@
   "id": "hlegendary",
   "version": "${version}",
   "name": "H Legendary Weapons",
-  "description": "Legendary weapons with seven configurable skills. Includes Inferno Blade and Frostbite.",
+  "description": "Legendary weapons with seven configurable skills. Includes Inferno Blade, Frostbite, and Thunder Hammer.",
   "authors": ["Hanif"],
-  "contact": {
-    "sources": "https://github.com/hizarsxc1-cpu/Hanif-Senjata-Legend-"
-  },
+  "contact": {"sources": "https://github.com/hizarsxc1-cpu/Hanif-Senjata-Legend-"},
   "license": "MIT",
   "environment": "*",
   "entrypoints": {

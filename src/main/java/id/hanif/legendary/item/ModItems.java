@@ -27,9 +27,18 @@ public final class ModItems {
                 .maxCount(1))
     );
 
+    public static final Item THUNDER_HAMMER = Registry.register(
+        Registries.ITEM,
+        Identifier.of(HLegendaryWeapons.MOD_ID, "thunder_hammer"),
+        new SwordItem(ToolMaterials.DIAMOND,
+            new Item.Settings()
+                .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 10, -3.0f))
+                .maxCount(1).fireproof())
+    );
+
     private ModItems() {}
 
     public static void register() {
-        HLegendaryWeapons.LOGGER.info("Registered Inferno Blade and Frostbite");
+        HLegendaryWeapons.LOGGER.info("Registered Inferno Blade, Frostbite, and Thunder Hammer");
     }
 }
