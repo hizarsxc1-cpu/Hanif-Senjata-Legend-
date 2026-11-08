@@ -47,9 +47,13 @@ public final class ModItems {
             .maxCount(1).fireproof())
     );
 
+    public static final Item TITAN_AXE = Registry.register(
+        Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "titan_axe"),
+        new net.minecraft.item.AxeItem(ToolMaterials.DIAMOND, 8.0F, -3.1F, new Item.Settings().maxCount(1))
+    );
     private ModItems() {}
 
     public static void register() {
-        HLegendaryWeapons.LOGGER.info("Registered six H Legendary Weapons, including Wind Katana");
+        HLegendaryWeapons.LOGGER.info("Registered seven H Legendary Weapons, including Titan Axe");
     }
 }

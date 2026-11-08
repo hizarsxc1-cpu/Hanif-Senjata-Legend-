@@ -27,7 +27,7 @@ public final class SkillHandler {
 
     public static void activate(ServerPlayerEntity player, int skill) {
         if (skill < 0 || skill >= 7) return;
-        if (player.getMainHandStack().isOf(ModItems.DRAGON_SLAYER)) {
+        if (player.getMainHandStack().isOf(ModItems.TITAN_AXE)) { TitanAxeSkillHandler.activate(player, skill); return; }\n        if (player.getMainHandStack().isOf(ModItems.DRAGON_SLAYER)) {
             DragonSlayerSkillHandler.activate(player, skill);
             return;
         }
