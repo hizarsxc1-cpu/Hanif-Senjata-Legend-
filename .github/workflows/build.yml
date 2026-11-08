@@ -25,8 +25,17 @@ jobs:
           gradle-version: 8.10.2
       - name: Build mod
         run: gradle build --no-daemon
-      - name: Upload mod JAR
+      - name: Package companion resource pack
+        run: |
+          mkdir -p build/resourcepack/assets
+          cp -r src/main/resources/assets/hlegendary build/resourcepack/assets/
+          cp resourcepack/pack.mcmeta build/resourcepack/pack.mcmeta
+          cd build/resourcepack
+          zip -r ../H-Legendary-ResourcePack.zip .
+      - name: Upload mod and resource pack
         uses: actions/upload-artifact@v4
         with:
-          name: H-Legendary-Weapons
-          path: build/libs/*.jar
+          name: H-Legendary-Weapons-and-ResourcePack
+          path: |
+            build/libs/*.jar
+            build/H-Legendary-ResourcePack.zip
