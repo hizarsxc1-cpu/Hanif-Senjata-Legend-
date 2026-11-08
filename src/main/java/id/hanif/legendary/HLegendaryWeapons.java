@@ -21,6 +21,6 @@ public class HLegendaryWeapons implements ModInitializer {
                 SkillHandler.activate(context.player(), payload.skill())
             )
         );
-        LOGGER.info("H Legendary Weapons initialized: Inferno Blade");
+        LOGGER.info("H Legendary Weapons initialized: five legendary weapons registered");
     }
 }
