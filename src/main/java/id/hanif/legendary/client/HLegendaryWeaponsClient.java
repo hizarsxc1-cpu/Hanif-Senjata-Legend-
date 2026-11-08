@@ -34,6 +34,36 @@ public class HLegendaryWeaponsClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.player == null || client.world == null) return;
 
+            boolean galaxySword = client.player.getMainHandStack().isOf(ModItems.GALAXY_SWORD);
+            if (galaxySword) {
+                long window = client.getWindow().getHandle();
+                boolean shiftDown = InputUtil.isKeyPressed(window, GLFW.GLFW_KEY_LEFT_SHIFT)
+                    || InputUtil.isKeyPressed(window, GLFW.GLFW_KEY_RIGHT_SHIFT);
+                long now = System.currentTimeMillis();
+
+                // Double-tap Shift activates Galaxy Sword skill 3.
+                if (shiftDown && !wasShiftDown) {
+                    if (now - lastShiftTap <= DOUBLE_SHIFT_WINDOW_MS) {
+                        ClientPlayNetworking.send(new SkillPayload(2));
+                        lastShiftTap = 0L;
+                    } else {
+                        lastShiftTap = now;
+                    }
+                }
+                wasShiftDown = shiftDown;
+
+                // Shift + right click = skill 1; ordinary right click = skill 4.
+                while (client.options.useKey.wasPressed()) {
+                    ClientPlayNetworking.send(new SkillPayload(shiftDown ? 0 : 3));
+                }
+
+                // Shift + left click = skill 2; ordinary left click remains basic attack.
+                while (client.options.attackKey.wasPressed()) {
+                    if (shiftDown) ClientPlayNetworking.send(new SkillPayload(1));
+                }
+                return;
+            }
+
             boolean doombringer = client.player.getMainHandStack().isOf(ModItems.DOOMBRINGER_AXE);
             if (doombringer) {
                 long window = client.getWindow().getHandle();
