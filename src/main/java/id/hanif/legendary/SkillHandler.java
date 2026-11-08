@@ -31,6 +31,10 @@ public final class SkillHandler {
             DragonSlayerSkillHandler.activate(player, skill);
             return;
         }
+        if (player.getMainHandStack().isOf(ModItems.WIND_KATANA)) {
+            WindKatanaSkillHandler.activate(player, skill);
+            return;
+        }
         if (player.getMainHandStack().isOf(ModItems.FROSTBITE)) {
             FrostbiteSkillHandler.activate(player, skill);
             return;

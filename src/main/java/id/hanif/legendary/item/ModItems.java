@@ -40,9 +40,16 @@ public final class ModItems {
             .maxCount(1).fireproof())
     );
 
+    public static final Item WIND_KATANA = Registry.register(
+        Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "wind_katana"),
+        new SwordItem(ToolMaterials.DIAMOND, new Item.Settings()
+            .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 10, -2.4f))
+            .maxCount(1).fireproof())
+    );
+
     private ModItems() {}
 
     public static void register() {
-        HLegendaryWeapons.LOGGER.info("Registered five H Legendary Weapons, including Dragon Slayer");
+        HLegendaryWeapons.LOGGER.info("Registered six H Legendary Weapons, including Wind Katana");
     }
 }

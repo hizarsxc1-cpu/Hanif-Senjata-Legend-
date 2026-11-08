@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " FW",
+    " SD",
+    "S  "
+  ],
+  "key": {
+    "F": { "item": "minecraft:feather" },
+    "W": { "item": "minecraft:wind_charge" },
+    "S": { "item": "minecraft:stick" },
+    "D": { "item": "minecraft:diamond_sword" }
+  },
+  "result": {
+    "id": "hlegendary:wind_katana",
+    "count": 1
+  }
+}
