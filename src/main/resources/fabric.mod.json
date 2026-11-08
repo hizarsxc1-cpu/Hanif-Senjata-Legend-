@@ -3,14 +3,22 @@
   "id": "hlegendary",
   "version": "${version}",
   "name": "H Legendary Weapons",
-  "description": "Legendary weapons with seven configurable skills. Includes Inferno Blade, Frostbite, Thunder Hammer, and Void Scythe.",
-  "authors": ["Hanif"],
-  "contact": {"sources": "https://github.com/hizarsxc1-cpu/Hanif-Senjata-Legend-"},
+  "description": "Legendary weapons with seven configurable skills. Includes Inferno Blade, Frostbite, Thunder Hammer, Void Scythe, and Dragon Slayer.",
+  "authors": [
+    "Hanif"
+  ],
+  "contact": {
+    "sources": "https://github.com/hizarsxc1-cpu/Hanif-Senjata-Legend-"
+  },
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["id.hanif.legendary.HLegendaryWeapons"],
-    "client": ["id.hanif.legendary.client.HLegendaryWeaponsClient"]
+    "main": [
+      "id.hanif.legendary.HLegendaryWeapons"
+    ],
+    "client": [
+      "id.hanif.legendary.client.HLegendaryWeaponsClient"
+    ]
   },
   "depends": {
     "fabricloader": ">=0.16.5",

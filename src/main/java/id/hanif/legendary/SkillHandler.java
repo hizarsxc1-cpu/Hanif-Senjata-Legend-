@@ -27,6 +27,10 @@ public final class SkillHandler {
 
     public static void activate(ServerPlayerEntity player, int skill) {
         if (skill < 0 || skill >= 7) return;
+        if (player.getMainHandStack().isOf(ModItems.DRAGON_SLAYER)) {
+            DragonSlayerSkillHandler.activate(player, skill);
+            return;
+        }
         if (player.getMainHandStack().isOf(ModItems.FROSTBITE)) {
             FrostbiteSkillHandler.activate(player, skill);
             return;

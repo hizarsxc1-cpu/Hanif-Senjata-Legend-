@@ -21,19 +21,17 @@ public class HLegendaryWeaponsClient implements ClientModInitializer {
     public void onInitializeClient() {
         for (int i = 0; i < KEYS.length; i++) {
             KEYS[i] = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.hlegendary.skill_" + (i + 1),
-                InputUtil.Type.KEYSYM,
-                DEFAULT_KEYS[i],
-                "key.categories.hlegendary.skills"
+                "key.hlegendary.skill_" + (i + 1), InputUtil.Type.KEYSYM,
+                DEFAULT_KEYS[i], "key.categories.hlegendary.skills"
             ));
         }
-
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.player == null || client.world == null) return;
             boolean legendaryWeapon = client.player.getMainHandStack().isOf(ModItems.INFERNO_BLADE)
                 || client.player.getMainHandStack().isOf(ModItems.FROSTBITE)
                 || client.player.getMainHandStack().isOf(ModItems.THUNDER_HAMMER)
-                || client.player.getMainHandStack().isOf(ModItems.VOID_SCYTHE);
+                || client.player.getMainHandStack().isOf(ModItems.VOID_SCYTHE)
+                || client.player.getMainHandStack().isOf(ModItems.DRAGON_SLAYER);
             if (!legendaryWeapon) return;
             for (int i = 0; i < KEYS.length; i++) {
                 while (KEYS[i].wasPressed()) ClientPlayNetworking.send(new SkillPayload(i));
