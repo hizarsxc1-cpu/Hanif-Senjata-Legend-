@@ -35,6 +35,10 @@ public final class SkillHandler {
             ThunderHammerSkillHandler.activate(player, skill);
             return;
         }
+        if (player.getMainHandStack().isOf(ModItems.VOID_SCYTHE)) {
+            VoidScytheSkillHandler.activate(player, skill);
+            return;
+        }
         if (!player.getMainHandStack().isOf(ModItems.INFERNO_BLADE)) return;
         if (!(player.getWorld() instanceof ServerWorld world)) return;
 

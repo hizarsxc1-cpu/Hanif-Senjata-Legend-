@@ -32,7 +32,8 @@ public class HLegendaryWeaponsClient implements ClientModInitializer {
             if (client.player == null || client.world == null) return;
             boolean legendaryWeapon = client.player.getMainHandStack().isOf(ModItems.INFERNO_BLADE)
                 || client.player.getMainHandStack().isOf(ModItems.FROSTBITE)
-                || client.player.getMainHandStack().isOf(ModItems.THUNDER_HAMMER);
+                || client.player.getMainHandStack().isOf(ModItems.THUNDER_HAMMER)
+                || client.player.getMainHandStack().isOf(ModItems.VOID_SCYTHE);
             if (!legendaryWeapon) return;
             for (int i = 0; i < KEYS.length; i++) {
                 while (KEYS[i].wasPressed()) ClientPlayNetworking.send(new SkillPayload(i));

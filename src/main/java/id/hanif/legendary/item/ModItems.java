@@ -36,9 +36,18 @@ public final class ModItems {
                 .maxCount(1).fireproof())
     );
 
+    public static final Item VOID_SCYTHE = Registry.register(
+        Registries.ITEM,
+        Identifier.of(HLegendaryWeapons.MOD_ID, "void_scythe"),
+        new SwordItem(ToolMaterials.DIAMOND,
+            new Item.Settings()
+                .attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 11, -2.8f))
+                .maxCount(1).fireproof())
+    );
+
     private ModItems() {}
 
     public static void register() {
-        HLegendaryWeapons.LOGGER.info("Registered Inferno Blade, Frostbite, and Thunder Hammer");
+        HLegendaryWeapons.LOGGER.info("Registered Inferno Blade, Frostbite, Thunder Hammer, and Void Scythe");
     }
 }
