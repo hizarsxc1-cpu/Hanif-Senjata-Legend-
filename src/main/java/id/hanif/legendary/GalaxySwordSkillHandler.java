@@ -18,19 +18,18 @@ import java.util.UUID;
 
 public final class GalaxySwordSkillHandler {
     private static final String[] NAMES = {
-        "Galaxy Slash", "Starfall", "Gravity Well", "Cosmic Guard",
-        "Comet Dash", "Astral Ring", "Supernova"
+        "Galaxy Slash", "Starfall", "Gravity Well", "Cosmic Guard"
     };
-    private static final int[] COOLDOWNS = {4, 12, 14, 22, 7, 18, 55};
+    private static final int[] COOLDOWNS = {4, 12, 14, 22};
     private static final Map<UUID, long[]> TIMERS = new HashMap<>();
     private static final Map<UUID, Integer> AURA_TICKS = new HashMap<>();
 
     private GalaxySwordSkillHandler() {}
 
     public static void activate(ServerPlayerEntity p, int skill) {
-        if (skill < 0 || skill >= 7 || !(p.getWorld() instanceof ServerWorld w)) return;
+        if (skill < 0 || skill >= 4 || !(p.getWorld() instanceof ServerWorld w)) return;
         long now = System.currentTimeMillis();
-        long[] timers = TIMERS.computeIfAbsent(p.getUuid(), ignored -> new long[7]);
+        long[] timers = TIMERS.computeIfAbsent(p.getUuid(), ignored -> new long[4]);
         if (now < timers[skill]) {
             p.sendMessage(Text.literal(NAMES[skill] + " cooldown: " + ((timers[skill] - now + 999) / 1000) + "s"), true);
             return;
@@ -42,9 +41,6 @@ public final class GalaxySwordSkillHandler {
             case 1 -> starfall(p, w);
             case 2 -> gravityWell(p, w);
             case 3 -> cosmicGuard(p, w);
-            case 4 -> cometDash(p, w);
-            case 5 -> astralRing(p, w);
-            case 6 -> supernova(p, w);
             default -> { }
         }
     }
@@ -105,33 +101,6 @@ public final class GalaxySwordSkillHandler {
         p.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,100,0));
         w.spawnParticles(ParticleTypes.END_ROD,p.getX(),p.getY()+1,p.getZ(),38,.8,1,.8,.025);
         w.spawnParticles(ParticleTypes.ENCHANT,p.getX(),p.getY()+1,p.getZ(),48,1,.8,1,.5);
-    }
-
-    private static void cometDash(ServerPlayerEntity p, ServerWorld w) {
-        Vec3d d=p.getRotationVec(1).normalize();
-        p.setVelocity(d.x*1.45,Math.max(.12,d.y*.45),d.z*1.45); p.velocityModified=true;
-        Vec3d c=p.getPos().add(d.multiply(2.2));
-        hitArea(p,w,c,2.2,6.5F,.35);
-        w.spawnParticles(ParticleTypes.END_ROD,p.getX(),p.getY()+.8,p.getZ(),24,.35,.35,.35,.06);
-        w.spawnParticles(ParticleTypes.PORTAL,p.getX(),p.getY()+.8,p.getZ(),18,.35,.35,.35,.12);
-    }
-
-    private static void astralRing(ServerPlayerEntity p, ServerWorld w) {
-        Vec3d c=p.getPos();
-        hitArea(p,w,c,5.0,8.0F,1.0);
-        for(int ring=0;ring<2;ring++)for(int i=0;i<28;i++){
-            double a=i*Math.PI*2/28, r=2.7+ring*1.1;
-            w.spawnParticles(ParticleTypes.END_ROD,c.x+Math.cos(a)*r,c.y+.25+ring*.65,c.z+Math.sin(a)*r,1,0,.02,0,0);
-        }
-    }
-
-    private static void supernova(ServerPlayerEntity p, ServerWorld w) {
-        Vec3d c=aimed(p,5.5);
-        hitArea(p,w,c,6.5,18.0F,1.45);
-        w.spawnParticles(ParticleTypes.FLASH,c.x,c.y+1,c.z,1,0,0,0,0);
-        w.spawnParticles(ParticleTypes.FIREWORK,c.x,c.y+1,c.z,75,2.4,1.0,2.4,.04);
-        w.spawnParticles(ParticleTypes.END_ROD,c.x,c.y+1,c.z,95,2.8,1.3,2.8,.035);
-        w.spawnParticles(ParticleTypes.PORTAL,c.x,c.y+1,c.z,55,2.2,.9,2.2,.08);
     }
 
     public static void onBasicHit(ServerPlayerEntity p, LivingEntity target, ServerWorld w) {
