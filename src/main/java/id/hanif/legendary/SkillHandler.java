@@ -27,6 +27,7 @@ public final class SkillHandler {
 
     public static void activate(ServerPlayerEntity player, int skill) {
         if (skill < 0 || skill >= 7) return;
+        if (player.getMainHandStack().isOf(ModItems.DOOMBRINGER_AXE)) { DoombringerAxeSkillHandler.activate(player, skill); return; }
         if (player.getMainHandStack().isOf(ModItems.ZAHR_HANI)) { ZahrHaniSkillHandler.activate(player, skill); return; }
         if (player.getMainHandStack().isOf(ModItems.CHRONOS)) { ChronosSkillHandler.activate(player, skill); return; }
         if (player.getMainHandStack().isOf(ModItems.SOLARIA)) { SolariaSkillHandler.activate(player, skill); return; }
