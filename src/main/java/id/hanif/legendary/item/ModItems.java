@@ -53,9 +53,15 @@ public final class ModItems {
             .attributeModifiers(net.minecraft.item.AxeItem.createAttributeModifiers(ToolMaterials.DIAMOND, 8.0F, -3.1F))
             .maxCount(1))
     );
+    public static final Item CELESTIAL_AXE = Registry.register(
+        Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "celestial_axe"),
+        new net.minecraft.item.AxeItem(ToolMaterials.DIAMOND, new Item.Settings()
+            .attributeModifiers(net.minecraft.item.AxeItem.createAttributeModifiers(ToolMaterials.DIAMOND, 9.0F, -3.0F))
+            .maxCount(1).fireproof())
+    );
     private ModItems() {}
 
     public static void register() {
-        HLegendaryWeapons.LOGGER.info("Registered seven H Legendary Weapons, including Titan Axe");
+        HLegendaryWeapons.LOGGER.info("Registered eight H Legendary Weapons, including Celestial Axe");
     }
 }

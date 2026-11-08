@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IDI",
+    "ISI",
+    " S "
+  ],
+  "key": {
+    "I": { "item": "minecraft:prismarine_shard" },
+    "D": { "item": "minecraft:diamond" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "id": "hlegendary:celestial_axe", "count": 1 }
+}
