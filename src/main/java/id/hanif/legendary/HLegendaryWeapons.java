@@ -34,12 +34,21 @@ public class HLegendaryWeapons implements ModInitializer {
                 && player instanceof ServerPlayerEntity serverPlayer
                 && target instanceof LivingEntity livingTarget
                 && world instanceof ServerWorld serverWorld
+                && serverPlayer.getMainHandStack().isOf(ModItems.GALAXY_SWORD)) {
+                GalaxySwordSkillHandler.onBasicHit(serverPlayer, livingTarget, serverWorld);
+            } else if (!world.isClient
+                && hand == Hand.MAIN_HAND
+                && player instanceof ServerPlayerEntity serverPlayer
+                && target instanceof LivingEntity livingTarget
+                && world instanceof ServerWorld serverWorld
                 && serverPlayer.getMainHandStack().isOf(ModItems.DOOMBRINGER_AXE)) {
                 DoombringerAxeSkillHandler.onBasicHit(serverPlayer, livingTarget, serverWorld);
             }
             return ActionResult.PASS;
         });
 
-        LOGGER.info("H Legendary Weapons initialized: twelve legendary weapons registered");
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(GalaxySwordSkillHandler::tickAura);
+
+        LOGGER.info("H Legendary Weapons initialized: thirteen legendary weapons registered");
     }
 }
