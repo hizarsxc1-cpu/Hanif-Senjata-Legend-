@@ -8,7 +8,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import org.lwjgl.g‌lfw.GLFW;
+import org.lwjgl.glfw.GLFW;
 
 public class HLegendaryWeaponsClient implements ClientModInitializer {
     private static final KeyBinding[] KEYS = new KeyBinding[7];
@@ -24,7 +24,7 @@ public class HLegendaryWeaponsClient implements ClientModInitializer {
                 "key.hlegendary.skill_" + (i + 1),
                 InputUtil.Type.KEYSYM,
                 DEFAULT_KEYS[i],
-                "category.hlegendary.skills"
+                "key.categories.hlegendary.skills"
             ));
         }
 
