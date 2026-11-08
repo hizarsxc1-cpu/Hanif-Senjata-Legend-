@@ -3,22 +3,16 @@
   "id": "hlegendary",
   "version": "${version}",
   "name": "H Legendary Weapons",
-  "description": "Eleven legendary weapons with seven configurable skills each, including the special Zahr & Hani eclipse greatsword.",
-  "authors": [
-    "Hanif"
-  ],
+  "description": "Twelve legendary weapons. Doombringer Axe has four click-combination skills, a passive effect, and heavy basic attacks.",
+  "authors": ["Hanif"],
   "contact": {
     "sources": "https://github.com/hizarsxc1-cpu/Hanif-Senjata-Legend-"
   },
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "id.hanif.legendary.HLegendaryWeapons"
-    ],
-    "client": [
-      "id.hanif.legendary.client.HLegendaryWeaponsClient"
-    ]
+    "main": ["id.hanif.legendary.HLegendaryWeapons"],
+    "client": ["id.hanif.legendary.client.HLegendaryWeaponsClient"]
   },
   "depends": {
     "fabricloader": ">=0.16.5",
