@@ -49,7 +49,9 @@ public final class ModItems {
 
     public static final Item TITAN_AXE = Registry.register(
         Registries.ITEM, Identifier.of(HLegendaryWeapons.MOD_ID, "titan_axe"),
-        new net.minecraft.item.AxeItem(ToolMaterials.DIAMOND, 8.0F, -3.1F, new Item.Settings().maxCount(1))
+        new net.minecraft.item.AxeItem(ToolMaterials.DIAMOND, new Item.Settings()
+            .attributeModifiers(net.minecraft.item.AxeItem.createAttributeModifiers(ToolMaterials.DIAMOND, 8.0F, -3.1F))
+            .maxCount(1))
     );
     private ModItems() {}
 
